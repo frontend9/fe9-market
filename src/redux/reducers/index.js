@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const test = (state = "hello, fe9", action) => {
+const test = (state = {}, action) => {
   switch(action.type) {
     default:
       return state

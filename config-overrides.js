@@ -1,6 +1,6 @@
 const { injectBabelPlugin } = require('react-app-rewired');
-// const rewireLess = require('react-app-rewire-less');
 const rewireLessModule = require('react-app-rewire-less-modules')
+const theme = require('./theme')
 
 module.exports = function override(config, env) {
   config = injectBabelPlugin(
@@ -8,7 +8,7 @@ module.exports = function override(config, env) {
     config,
   );
   config = rewireLessModule.withLoaderOptions({
-    // modifyVars: { "@primary-color": "#000" },
+    modifyVars: theme,
     javascriptEnabled: true,
   })(config, env);
   return config;
