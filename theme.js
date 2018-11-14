@@ -1,5 +1,5 @@
 const theme = {
-  "@layout-header-background": "red",
+  "@layout-header-background": "#ffffff",
   "@layout-body-background": "#fafafa"
 }
 
