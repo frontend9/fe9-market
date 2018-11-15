@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { List } from "antd";
 import styles from '../styles/components/ToolList.module.less'
 import Tool from './Tool'
@@ -36,16 +36,20 @@ const data = [
   },
 ];
 
-const ToolList = ({}) => (
-  <List className={styles.toollist}
-    grid={{ gutter: 16, xs: 1, sm: 2, md: 2, lg: 3, xl: 3, xxl: 3 }}
-    dataSource={data}
-    renderItem={item => (
-      <List.Item className={styles.toollistItem} key={item.id}>
-        <Tool {...item}></Tool>
-      </List.Item>
-    )}
-  />
-)
+class ToolList extends Component {
+  render() {
+    return (
+      <List className={styles.toollist}
+        grid={{ gutter: 16, xs: 1, sm: 2, md: 2, lg: 3, xl: 3, xxl: 3 }}
+        dataSource={data}
+        renderItem={item => (
+          <List.Item className={styles.toollistItem} key={item.id}>
+            <Tool {...item}></Tool>
+          </List.Item>
+        )}
+      />
+    )
+  }
+}
 
 export default ToolList
