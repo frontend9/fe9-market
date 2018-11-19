@@ -11,7 +11,7 @@ class Home extends Component {
     return (
       <div>
         <Banner></Banner>  
-        <Content className={styles.content}>
+        <Content className={styles.gallery}>
           <ToolList></ToolList>      
         </Content>
       </div>

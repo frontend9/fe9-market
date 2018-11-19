@@ -16,7 +16,7 @@ class HeaderCustom extends Component {
               <img className={styles.logoImage} src={logo} alt="logo" />
             </Link>
           </div>
-          <h2 className={styles.title}>前端九部工具市场</h2>
+          <h2 className={styles.title}>前端九部工具库</h2>
         </div>
       </Header>
     )
