@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { List } from "antd";
 import styles from '../styles/components/ToolList.module.less'
-import Tool from './Tool'
+import ToolItem from './ToolItem'
 
 const data = [
   {
@@ -44,7 +44,7 @@ class ToolList extends Component {
         dataSource={data}
         renderItem={item => (
           <List.Item className={styles.toollistItem} key={item.id}>
-            <Tool {...item}></Tool>
+            <ToolItem {...item}></ToolItem>
           </List.Item>
         )}
       />

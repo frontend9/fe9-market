@@ -1,15 +1,15 @@
 import React from 'react'
 import { Card, Icon, Avatar } from 'antd';
 import { Link } from "react-router-dom";
-import styles from '../styles/components/Tool.module.less'
+import styles from '../styles/components/ToolItem.module.less'
 import logo from "../assets/logo.png";
 
 const { Meta } = Card;
 
-const Tool = ({ id, title, description }) => (
+const ToolItem = ({ id, title, description }) => (
   <Link to={`/tool/${id}`}>
     <Card
-      className={styles.tool}
+      className={styles.toolitem}
       hoverable={true}
       bordered={false}
     >
@@ -23,4 +23,4 @@ const Tool = ({ id, title, description }) => (
   </Link>
 )
 
-export default Tool
+export default ToolItem
