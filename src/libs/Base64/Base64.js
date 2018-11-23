@@ -28,8 +28,8 @@ class Base64 extends Component {
                lg={{ span: 5, offset: 0 }}
                xl={{ span: 4, offset: 0 }}
                xxl={{ span: 4, offset: 0 }}>
-            <Button className={styles.encode} onClick={this.handleEncode}>&#60;&#45; encode</Button>
-            <Button className={styles.decode} onClick={this.handleDecode}>decode &#45;&#62;</Button>
+            <Button className={styles.encode} onClick={this.handleEncode}>&#60;&#45; 编码</Button>
+            <Button className={styles.decode} onClick={this.handleDecode}>解码 &#45;&#62;</Button>
           </Col>
           <Col xs={8} sm={9} md={8} lg={8} xl={8} xxl={8}>
             <TextArea placeholder="请输入要解码的内容" rows={10} className={styles.textarea} ref={(ref) => this.decodeInput = ref} />
