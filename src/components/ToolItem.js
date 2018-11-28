@@ -1,12 +1,12 @@
 import React from 'react'
-import { Card, Icon, Avatar } from 'antd';
+import { Card, Avatar } from 'antd';
 import { Link } from "react-router-dom";
 import styles from '../styles/components/ToolItem.module.less'
 import logo from "../assets/logo.png";
 
 const { Meta } = Card;
 
-const ToolItem = ({ id, title, description }) => (
+const ToolItem = ({ id, name, description, author }) => (
   <Link to={`/tool/${id}`}>
     <Card
       className={styles.toolitem}
@@ -15,7 +15,7 @@ const ToolItem = ({ id, title, description }) => (
     >
       <Meta
         avatar={<Avatar src={logo} />}
-        title={title}
+        title={name}
         description={description}
         className={styles.meta}
       />

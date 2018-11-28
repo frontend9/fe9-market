@@ -7,7 +7,7 @@ class ToolDetail extends Component {
     const { match } = this.props
     const id = match.params.id
     const tool = libs[id]
-    const { name: name, author: author, component: ToolComponent } = tool
+    const { name, author, component: ToolComponent } = tool
     return (
       <div className={styles.toolDetail}>
         <div className={styles.toolMeta}>
