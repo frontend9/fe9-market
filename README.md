@@ -57,3 +57,9 @@ export default [
 
 * Base64 编解码 [ 完成 ]
 * JSON 格式化 [ 待完成 ]
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright © 2018 frontend9
