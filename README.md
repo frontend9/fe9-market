@@ -1,44 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 九部前端工具库
 
-## Available Scripts
+## 项目介绍
+九部前端工具库是九部旗下的一款前端工具汇聚的产品。汇聚社区开发的前端工具，方便前端开发者快速寻找到合适的开发工具，获得良好的工具使用体验。
 
-In the project directory, you can run:
+## 构建方式
 
-### `npm start`
+本项目使用 [Create React App](https://github.com/facebook/create-react-app) 构建，具体构建方式请参考该脚手架。
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+本地运行，使用 npm install 命令安装依赖，再运行 npm start 命令以开发模式启动应用。打开浏览器访问 [http://localhost:3000](http://localhost:3000) 以访问具体应用页面。
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Issue 反馈
 
-### `npm test`
+遇到工具的 bug，或者对网站有什么合理的改善建议，可以通过 issue 的方式提出。
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 贡献方式
 
-### `npm run build`
+九部前端工具库主要分为两个部分：
+* 主站点
+* 工具库（libs 目录）
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 主站点
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+目前整个项目本身是以单一网站的形式进行的架构，主站点即当前项目。如果你觉得主站点不够美观，或者希望增加新功能，可以通过 Fork 本项目，本地修改，提交 PR 的方式进行。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 工具库
 
-### `npm run eject`
+由于工具库还处于初期开发中，目前使用 libs 目录进行承载。即 libs 目录下为开发者贡献的可用的工具。
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Base64 工具开发示例
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+以开发 Base64 工具为例，在 libs 新建文件夹 Base64，增加 Base64.js 文件，该文件是一个 React 组件，提供了 UI 和编解码逻辑。样式文件通过 css modules 方式存在同目录下的 Base64.module.less 文件中。
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+在 libs 下新建 index.js文件，导入刚刚写好的 Base64 工具组件，并且以元信息的方式导出工具。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```javascript
+export default {
+  name: 'Base64 插件',
+  author: 'fkysly',
+  description: '提供对 Base64 编解码的支持',
+  component: Base64
+}
+```
 
-## Learn More
+* 字段不可缺省
+* component 字段必须要对应工具组件
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+最后在 libs/index.js 文件中，新增刚刚写好的插件，形成一个工具数组，网站将会自动按照数组的顺序排列工具。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+export default [
+  Base64
+]
+```
+
+## 支持的工具列表
+
+* Base64 编解码 [ 完成 ]
+* JSON 格式化 [ 待完成 ]
