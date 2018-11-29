@@ -1,0 +1,109 @@
+/**
+ *
+ * {{properCase name }}
+ *
+ */
+
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+{{#if wantHeaders}}
+import { Helmet } from 'react-helmet';
+{{/if}}
+{{#if wantI18n}}
+import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
+{{/if}}
+// import PropTypes from 'prop-types';
+import HOCImmutableToJS from 'components/HOCImmutableToJS';
+{{#if wantActionsAndReducer}}
+import injectReducer from 'utils/injectReducer';
+{{/if}}
+{{#if wantSaga}}
+import injectSaga from 'utils/injectSaga';
+{{/if}}
+
+{{#if wantActionsAndReducer}}
+import { defaultAction, } from './action';
+import reducer from './reducer';
+{{/if}}
+{{#if wantSaga}}
+import saga from './saga';
+{{/if}}
+
+/* eslint-disable react/prefer-stateless-function */
+export class {{ properCase name }} extends {{{ type }}} {
+  {{#if wantI18n}}
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+  }
+  {{else}}
+  static propTypes = { }
+  {{/if}}
+
+  render() {
+    {{#if wantI18n}}
+    const { t } = this.props;
+    {{/if}}
+    return (
+      <div>
+      {{#if wantHeaders}}
+        <Helmet>
+          <title>{{properCase name}}</title>
+          <meta name="description" content="Description of {{properCase name}}" />
+        </Helmet>
+      {{/if}}
+      {{#if wantI18n}}
+        {t('defaultI18n')}
+      {{else}}
+        {{properCase name}} {{type}}
+      {{/if}}
+      </div>
+    );
+  }
+}
+
+{{#if wantActionsAndReducer}}
+const mapStateToProps = (store) => {
+  const state = store.get('{{lowerCase name}}');
+  return {};
+};
+{{/if}}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+const WrapedHOCImmutableToJS = HOCImmutableToJS({{ properCase name }});
+
+{{#if wantActionsAndReducer}}
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withReducer = injectReducer({ key: '{{ lowerCase name }}', reducer });
+{{/if}}
+{{#if wantSaga}}
+const withSaga = injectSaga({ key: '{{lowerCase name}}', saga });
+ {{/if}}
+
+{{#if wantI18n}}
+export default translate('global')(compose(
+{{#if wantActionsAndReducer}}
+  withReducer,
+{{/if}}
+{{#if wantSaga}}
+  withSaga,
+{{/if}}
+  withConnect,
+)(WrapedHOCImmutableToJS));
+{{else}}
+export default compose(
+{{#if wantActionsAndReducer}}
+  withReducer,
+{{/if}}
+{{#if wantSaga}}
+  withSaga,
+{{/if}}
+  withConnect,
+)(WrapedHOCImmutableToJS);
+{{/if}}
