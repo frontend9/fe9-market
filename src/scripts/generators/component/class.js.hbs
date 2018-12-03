@@ -1,0 +1,47 @@
+/**
+ *
+ * {{ properCase name }}
+ *
+ */
+
+import React from 'react';
+{{#if wantI18n}}
+import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
+
+{{/if}}
+// import PropTypes from 'prop-types';
+
+/* eslint-disable react/prefer-stateless-function */
+class {{ properCase name }} extends {{{ type }}} {
+  {{#if wantI18n}}
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+  }
+  {{else}}
+  static propTypes = {
+
+  }
+  {{/if}}
+
+  render() {
+    {{#if wantI18n}}
+    const { t } = this.props;
+    {{/if}}
+    return (
+      <div>
+      {{#if wantI18n}}
+        {t('defaultI18n')}
+      {{else}}
+      {{properCase name}} {{type}}
+      {{/if}}
+      </div>
+    );
+  }
+}
+
+{{#if wantI18n}}
+export default translate('global')({{ properCase name }});
+{{else}}
+export default {{ properCase name }};
+{{/if}}

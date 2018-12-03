@@ -1,0 +1,41 @@
+/**
+ *
+ * {{ properCase name }}
+ *
+ */
+
+import React from 'react';
+{{#if wantI18n}}
+import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
+{{/if}}
+// import PropTypes from 'prop-types';
+
+function {{ properCase name }}(props) {
+  {{#if wantI18n}}
+  const { t } = props; // i18n
+  {{/if}}
+  return (
+    <div>
+      {{#if wantI18n}}
+      {t('defaultI18n')}
+      {{else}}
+      {{properCase name}} {{type}}
+      {{/if}}
+    </div>
+  );
+}
+
+ {{#if wantI18n}}
+{{ properCase name }}.propTypes = {
+  t: PropTypes.func.isRequired,
+};
+{{else}}
+{{ properCase name }}.propTypes = {};
+{{/if}}
+
+{{#if wantI18n}}
+export default translate('global')({{ properCase name }});
+{{else}}
+export default {{properCase name}}
+{{/if}}

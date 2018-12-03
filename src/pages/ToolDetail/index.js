@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import libs from '../libs'
-import styles from '../styles/components/ToolDetail.module.less'
+import libs from '../../libs'
+import styles from './styles/index.module.less';
 
 class ToolDetail extends Component {
   render() {
